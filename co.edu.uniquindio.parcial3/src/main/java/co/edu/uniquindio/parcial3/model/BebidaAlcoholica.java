@@ -6,12 +6,13 @@ public class BebidaAlcoholica extends Bebida{
     private int gradoAlcohol;
     private TipoBebidaAlcoholica tipoBebidaAlcoholica;
 
-    /*Constructor*/
-    public BebidaAlcoholica(int gradoAlcohol, TipoBebidaAlcoholica tipoBebidaAlcoholica) {
+    public BebidaAlcoholica(String nombre, int valor, int gradoAlcohol, TipoBebidaAlcoholica tipoBebidaAlcoholica) {
+        super(nombre, valor);
         this.gradoAlcohol = gradoAlcohol;
         this.tipoBebidaAlcoholica = tipoBebidaAlcoholica;
     }
 
+    /*Constructor*/
     public BebidaAlcoholica() {
     }
 
@@ -31,5 +32,22 @@ public class BebidaAlcoholica extends Bebida{
 
     public void setTipoBebidaAlcoholica(TipoBebidaAlcoholica tipoBebidaAlcoholica) {
         this.tipoBebidaAlcoholica = tipoBebidaAlcoholica;
+    }
+
+    @Override
+    public double calcularPrecio() {
+        int precioBase = getValor();
+        double impuestoNacional= 0.0;
+        double precioFinal = 0.0;
+        if (tipoBebidaAlcoholica == TipoBebidaAlcoholica.NACIONAL) {
+            if (gradoAlcohol <= 50) {
+                impuestoNacional = gradoAlcohol * 0.02;
+                precioFinal= precioBase * (1 + impuestoNacional);
+            }
+        }
+        else if (tipoBebidaAlcoholica == TipoBebidaAlcoholica.IMPORTADA){
+            precioFinal = (precioBase * 1.3) * (0.3 * gradoAlcohol);
+        }
+        return precioFinal;
     }
 }

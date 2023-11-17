@@ -1,13 +1,13 @@
 package co.edu.uniquindio.parcial3.model;
 
 public class Dulce extends Producto{
-    private int impuestoBase;
+    private double impuestoBase;
     private int contenidoAzucar;
-    private String impuestoAdicional;
+    private double impuestoAdicional;
 
     /*Constructor*/
 
-    public Dulce(String nombre, int valor, int impuestoBase, int contenidoAzucar, String impuestoAdicional) {
+    public Dulce(String nombre, int valor, double impuestoBase, int contenidoAzucar, double impuestoAdicional) {
         super(nombre, valor);
         this.impuestoBase = impuestoBase;
         this.contenidoAzucar = contenidoAzucar;
@@ -20,7 +20,7 @@ public class Dulce extends Producto{
 
     /*Getters and setters*/
 
-    public int getImpuestoBase() {
+    public double getImpuestoBase() {
         return impuestoBase;
     }
 
@@ -36,16 +36,24 @@ public class Dulce extends Producto{
         this.contenidoAzucar = contenidoAzucar;
     }
 
-    public String getImpuestoAdicional() {
+    public double getImpuestoAdicional() {
         return impuestoAdicional;
     }
 
-    public void setImpuestoAdicional(String impuestoAdicional) {
+    public void setImpuestoAdicional(double impuestoAdicional) {
         this.impuestoAdicional = impuestoAdicional;
     }
 
     @Override
-    public int calcularPrecio() {
-        return super.calcularPrecio();
+    public double calcularPrecio() {
+        int precioBase = getValor();
+        double impuestoFinal = 0.0;
+        if (contenidoAzucar > 50) {
+            impuestoFinal = impuestoBase + impuestoAdicional;
+        }
+        else {
+            impuestoFinal = impuestoBase;
+        }
+        return precioBase * (1 + impuestoFinal);
     }
 }

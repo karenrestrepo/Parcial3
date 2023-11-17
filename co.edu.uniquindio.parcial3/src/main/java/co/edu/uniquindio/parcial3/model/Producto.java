@@ -5,7 +5,9 @@ public class Producto {
     private int valor;
     Cafeteria ownedByCafeteria;
 
-    public int calcularPrecio();
+    public double calcularPrecio() {
+        return 0.0;
+    }
 
     /*Constructor*/
 
