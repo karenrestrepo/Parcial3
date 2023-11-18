@@ -6,6 +6,10 @@ public class Cliente {
     private String apellido;
     private String correoElectronico;
     Cafeteria ownedByCafeteria;
+    public double calcularDescuento() {
+        return 0.0;
+    }
+
 
     /*Constructor*/
 

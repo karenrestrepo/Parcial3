@@ -24,7 +24,7 @@ public class Dulce extends Producto{
         return impuestoBase;
     }
 
-    public void setImpuestoBase(int impuestoBase) {
+    public void setImpuestoBase(double impuestoBase) {
         this.impuestoBase = impuestoBase;
     }
 

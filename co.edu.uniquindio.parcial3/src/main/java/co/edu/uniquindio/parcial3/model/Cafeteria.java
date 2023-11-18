@@ -7,7 +7,7 @@ public class Cafeteria {
     private String nombre;
     List<Cliente> listaClientes = new ArrayList<>();
     List<Factura> listaFactura = new ArrayList<>();
-    List<Producto> listaProducto = new ArrayList<>();
+    List<Producto> listaProductos = new ArrayList<>();
 
     /*Constructor*/
 
@@ -40,11 +40,11 @@ public class Cafeteria {
         this.listaFactura = listaFactura;
     }
 
-    public List<Producto> getListaProducto() {
-        return listaProducto;
+    public List<Producto> getListaProductos() {
+        return listaProductos;
     }
 
-    public void setListaProducto(List<Producto> listaProducto) {
-        this.listaProducto = listaProducto;
+    public void setListaProductos(List<Producto> listaProductos) {
+        this.listaProductos = listaProductos;
     }
 }
