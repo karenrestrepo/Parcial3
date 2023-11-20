@@ -47,4 +47,6 @@ public class Cafeteria {
     public void setListaProductos(List<Producto> listaProductos) {
         this.listaProductos = listaProductos;
     }
+
+
 }

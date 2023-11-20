@@ -2,7 +2,7 @@ package co.edu.uniquindio.parcial3.model;
 
 public class Estudiante extends Cliente{
     private int semestreCursado;
-    private int descuentoBase;
+    private double descuentoBase;
 
     /*Constructor*/
 
@@ -25,11 +25,11 @@ public class Estudiante extends Cliente{
         this.semestreCursado = semestreCursado;
     }
 
-    public int getDescuentoBase() {
+    public double getDescuentoBase() {
         return descuentoBase;
     }
 
-    public void setDescuentoBase(int descuentoBase) {
+    public void setDescuentoBase(double descuentoBase) {
         this.descuentoBase = descuentoBase;
     }
 

@@ -1,13 +1,13 @@
 package co.edu.uniquindio.parcial3.model;
 
 public class BebidaAzucarada extends Bebida {
-    private int impuestoBasico;
+    private double impuestoBasico;
     private int contenidoAzucar;
-    private int impuestoAdicional;
+    private double impuestoAdicional;
 
     /*Constructor*/
 
-    public BebidaAzucarada(String nombre, int valor, int impuestoBasico, int contenidoAzucar, int impuestoAdicional) {
+    public BebidaAzucarada(String nombre, int valor, double impuestoBasico, int contenidoAzucar, double impuestoAdicional) {
         super(nombre, valor);
         this.impuestoBasico = impuestoBasico;
         this.contenidoAzucar = contenidoAzucar;
@@ -18,11 +18,11 @@ public class BebidaAzucarada extends Bebida {
 
 
     /*Getters and Setters*/
-    public int getImpuestoBasico() {
+    public double getImpuestoBasico() {
         return impuestoBasico;
     }
 
-    public void setImpuestoBasico(int impuestoBasico) {
+    public void setImpuestoBasico(double impuestoBasico) {
         this.impuestoBasico = impuestoBasico;
     }
 
@@ -34,11 +34,11 @@ public class BebidaAzucarada extends Bebida {
         this.contenidoAzucar = contenidoAzucar;
     }
 
-    public int getImpuestoAdicional() {
+    public double getImpuestoAdicional() {
         return impuestoAdicional;
     }
 
-    public void setImpuestoAdicional(int impuestoAdicional) {
+    public void setImpuestoAdicional(double impuestoAdicional) {
         this.impuestoAdicional = impuestoAdicional;
     }
 
