@@ -81,12 +81,15 @@ public class Factura {
     public void calcularTotal() {
         double acumuladoFactura = 0.0;
         double valorTotalDetalle = 0.0;
+        double descuento = clienteAsociado.calcularDescuento();
+        double totalFactura = 0.0;
         for(DetalleFactura detalleFactura: getListaDetallesFacturas()){
             valorTotalDetalle = detalleFactura.calularValorDetalle();
             acumuladoFactura = acumuladoFactura + valorTotalDetalle;
             valorTotalDetalle = 0.0;
         }
-        setTotalFactura(acumuladoFactura);
+        totalFactura = acumuladoFactura - (acumuladoFactura * descuento);
+        setTotalFactura(totalFactura);
     }
 
     public void calcularTotalProductos() {
