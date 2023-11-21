@@ -5,6 +5,8 @@ public class Dulce extends Producto{
     private int contenidoAzucar;
     private double impuestoAdicional;
 
+
+
     /*Constructor*/
 
     public Dulce(String nombre, int valor, double impuestoBase, int contenidoAzucar, double impuestoAdicional) {

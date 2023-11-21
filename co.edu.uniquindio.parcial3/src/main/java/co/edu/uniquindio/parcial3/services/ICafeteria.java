@@ -1,0 +1,15 @@
+package co.edu.uniquindio.parcial3.services;
+
+import co.edu.uniquindio.parcial3.model.Cliente;
+import co.edu.uniquindio.parcial3.model.DetalleFactura;
+import co.edu.uniquindio.parcial3.model.Factura;
+import co.edu.uniquindio.parcial3.model.Producto;
+
+public interface ICafeteria {
+    Factura crearFactura(int numeroFactura, Cliente cliente);
+    void crearDetalleFactura(Factura factura, Producto producto, int cantidad);
+    Cliente obtenerCliente(String cedula);
+    Producto obtenerProducto(String nombre);
+    void calcularTotalFactura(Factura factura);
+
+}

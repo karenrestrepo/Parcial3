@@ -7,7 +7,14 @@ import co.edu.uniquindio.parcial3.model.Enum.TipoProfesor;
 public class Main {
     public static void main(String[] args) {
         Cafeteria cafeteria = inicilaizarDatosPrueba();
-
+        Cliente cliente = cafeteria.obtenerCliente("113");
+        Producto producto = cafeteria.obtenerProducto("Bombon");
+        Producto producto2 = cafeteria.obtenerProducto("BBC Macondo");
+        Factura factura = cafeteria.crearFactura(155, cliente);
+        cafeteria.crearDetalleFactura(factura, producto, 5);
+        cafeteria.crearDetalleFactura(factura, producto2, 3);
+        cafeteria.calcularTotalFactura(factura);
+        System.out.println("Informacion de la factura:"+ factura.toString());
     }
 
     private static Cafeteria inicilaizarDatosPrueba() {
@@ -33,7 +40,7 @@ public class Main {
         bebidaAzucarada.setImpuestoAdicional(0.2);
 
         BebidaAlcoholica bebidaAlcoholica = new BebidaAlcoholica();
-        bebidaAlcoholica.setNombre("Cerveza");
+        bebidaAlcoholica.setNombre("BBC Macondo");
         bebidaAlcoholica.setValor(5000);
         bebidaAlcoholica.setTipoBebidaAlcoholica(TipoBebidaAlcoholica.NACIONAL);
         bebidaAlcoholica.setGradoAlcohol(40);
@@ -58,6 +65,8 @@ public class Main {
         profesor.setCorreoElectronico("mario@gmail.com");
         profesor.setTipoProfesor(TipoProfesor.TITULAR);
 
+
+
         dulce.setOwnedByCafeteria(cafeteria);
         agua.setOwnedByCafeteria(cafeteria);
         bebidaAzucarada.setOwnedByCafeteria(cafeteria);
@@ -73,6 +82,9 @@ public class Main {
         cafeteria.getListaProductos().add(panaderia);
         cafeteria.getListaClientes().add(estudiante);
         cafeteria.getListaClientes().add(profesor);
+
+
+
         return cafeteria;
 
     }

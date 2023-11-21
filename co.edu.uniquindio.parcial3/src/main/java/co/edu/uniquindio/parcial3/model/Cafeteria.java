@@ -1,9 +1,11 @@
 package co.edu.uniquindio.parcial3.model;
 
+import co.edu.uniquindio.parcial3.services.ICafeteria;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Cafeteria {
+public class Cafeteria implements ICafeteria {
     private String nombre;
     List<Cliente> listaClientes = new ArrayList<>();
     List<Factura> listaFactura = new ArrayList<>();
@@ -49,4 +51,45 @@ public class Cafeteria {
     }
 
 
+    @Override
+    public Factura crearFactura(int numeroFactura, Cliente cliente) {
+        Factura factura = new Factura();
+        factura.setClienteAsociado(cliente);
+        factura.setNumeroFactura(numeroFactura);
+        return factura;
+    }
+
+    @Override
+    public void crearDetalleFactura(Factura factura, Producto producto, int cantidad) {
+        DetalleFactura detalleFactura = new DetalleFactura();
+        detalleFactura.setProductoAsociado(producto);
+        detalleFactura.setCantidad(cantidad);
+        factura.getListaDetallesFacturas().add(detalleFactura);
+        detalleFactura.setOwnedByFactura(factura);
+    }
+
+    @Override
+    public Cliente obtenerCliente(String cedula) {
+        Cliente clienteEncontrado = null;
+        for (Cliente cliente : getListaClientes()) {
+            if (cliente.getCedula().equalsIgnoreCase(cedula)) {
+                clienteEncontrado = cliente;
+                break;
+            }
+        }
+        return clienteEncontrado;
+    }
+
+    @Override
+    public Producto obtenerProducto(String nombre) {
+        return getListaProductos().stream()
+                .filter(producto -> producto.getNombre().equalsIgnoreCase(nombre))
+                .findFirst()
+                .orElse(null);
+    }
+
+    @Override
+    public void calcularTotalFactura(Factura factura) {
+        factura.calcularTotal();
+    }
 }

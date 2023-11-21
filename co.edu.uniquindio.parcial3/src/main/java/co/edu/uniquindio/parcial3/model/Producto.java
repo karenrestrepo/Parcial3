@@ -5,10 +5,6 @@ public class Producto {
     private int valor;
     Cafeteria ownedByCafeteria;
 
-    public double calcularPrecio() {
-        return 0.0;
-    }
-
     /*Constructor*/
 
     public Producto(String nombre, int valor) {
@@ -43,6 +39,11 @@ public class Producto {
 
     public void setOwnedByCafeteria(Cafeteria ownedByCafeteria) {
         this.ownedByCafeteria = ownedByCafeteria;
+    }
+
+
+    public double calcularPrecio() {
+        return 0.0;
     }
 
 }
