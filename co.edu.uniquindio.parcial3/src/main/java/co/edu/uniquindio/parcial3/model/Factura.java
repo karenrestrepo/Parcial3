@@ -41,6 +41,7 @@ public class Factura {
         this.ownedByCafeteria = ownedByCafeteria;
     }
 
+
     public List<DetalleFactura> getListaDetallesFacturas() {
         return listaDetallesFacturas;
     }

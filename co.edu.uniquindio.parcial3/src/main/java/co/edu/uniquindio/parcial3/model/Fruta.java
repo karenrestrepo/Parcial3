@@ -3,8 +3,6 @@ package co.edu.uniquindio.parcial3.model;
 import co.edu.uniquindio.parcial3.services.IFruta;
 
 public class Fruta extends Producto implements IFruta {
-    private int impuestoBase;
-    private int impuestoDisminuido;
 
     private final double PRECIO_BASE = 7.0;
 
@@ -12,42 +10,20 @@ public class Fruta extends Producto implements IFruta {
 
     public Fruta(String nombre, int valor, int impuestoDisminuido) {
         super(nombre, valor);
-        this.impuestoDisminuido = impuestoDisminuido;
     }
 
     public Fruta() {
-    }
-
-    /*Getters and setters*/
-
-    public int getImpuestoBase() {
-        return impuestoBase;
-    }
-
-    public void setImpuestoBase(int impuestoBase) {
-        this.impuestoBase = impuestoBase;
-    }
-
-    public int getImpuestoDisminuido() {
-        return impuestoDisminuido;
-    }
-
-    public void setImpuestoDisminuido(int impuestoDisminuido) {
-        this.impuestoDisminuido = impuestoDisminuido;
     }
 
 
     @Override
     public double calcularPrecio(int pesoKilo) {
         double impuesto = calcularImpuesto(pesoKilo);
+        double precio = 0.0;
         double precioFinal = 0.0;
-        //precioFinal = getValor()
-
-
-
-
-
-        return 0;
+        precio = pesoKilo * (getValor() * 2);
+        precioFinal = precio + (precio * impuesto);
+        return precioFinal;
     }
 
     private  double calcularImpuesto(int pesoKilo) {

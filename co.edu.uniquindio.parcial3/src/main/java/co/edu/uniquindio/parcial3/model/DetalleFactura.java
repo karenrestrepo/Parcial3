@@ -44,8 +44,20 @@ public class DetalleFactura{
             return  ((Fruta)getProductoAsociado()).calcularPrecio(getCantidad());
         }
 
+        if(getProductoAsociado() instanceof Agua){
+            return  ((Agua)getProductoAsociado()).calcularPrecio();
+        }
+
+        if(getProductoAsociado() instanceof BebidaAzucarada){
+            return  ((BebidaAzucarada)getProductoAsociado()).calcularPrecio();
+        }
+
         if(getProductoAsociado() instanceof BebidaAlcoholica){
             return  ((BebidaAlcoholica)getProductoAsociado()).calcularPrecio();
+        }
+
+        if(getProductoAsociado() instanceof Panaderia) {
+            return ((Panaderia) getProductoAsociado()).calcularPrecio();
         }
 
         return 0.0;

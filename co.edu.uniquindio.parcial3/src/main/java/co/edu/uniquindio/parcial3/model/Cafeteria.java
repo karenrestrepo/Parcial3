@@ -52,10 +52,11 @@ public class Cafeteria implements ICafeteria {
 
 
     @Override
-    public Factura crearFactura(int numeroFactura, Cliente cliente) {
+    public Factura crearFactura(int numeroFactura, Cliente cliente, Cafeteria cafeteria) {
         Factura factura = new Factura();
         factura.setClienteAsociado(cliente);
         factura.setNumeroFactura(numeroFactura);
+        factura.setOwnedByCafeteria(cafeteria);
         return factura;
     }
 

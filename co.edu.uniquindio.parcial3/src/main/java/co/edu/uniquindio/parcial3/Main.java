@@ -10,9 +10,15 @@ public class Main {
         Cliente cliente = cafeteria.obtenerCliente("113");
         Producto producto = cafeteria.obtenerProducto("Bombon");
         Producto producto2 = cafeteria.obtenerProducto("BBC Macondo");
-        Factura factura = cafeteria.crearFactura(155, cliente);
+        Producto producto3 = cafeteria.obtenerProducto("Gaseosa");
+        Producto producto4 = cafeteria.obtenerProducto("Pan");
+        Producto producto5 = cafeteria.obtenerProducto("Piña");
+        Factura factura = cafeteria.crearFactura(155, cliente, cafeteria);
         cafeteria.crearDetalleFactura(factura, producto, 5);
         cafeteria.crearDetalleFactura(factura, producto2, 3);
+        cafeteria.crearDetalleFactura(factura, producto3, 1);
+        cafeteria.crearDetalleFactura(factura, producto4, 4);
+        cafeteria.crearDetalleFactura(factura, producto5, 8);
         cafeteria.calcularTotalFactura(factura);
         System.out.println("Informacion de la factura:"+ factura.toString());
     }
@@ -50,6 +56,10 @@ public class Main {
         panaderia.setValor(3000);
         panaderia.setConservantes(true);
 
+        Fruta fruta = new Fruta();
+        fruta.setNombre("Piña");
+        fruta.setValor(3500);
+
         Estudiante estudiante = new Estudiante();
         estudiante.setNombre("Maria");
         estudiante.setApellido("Marin");
@@ -65,13 +75,12 @@ public class Main {
         profesor.setCorreoElectronico("mario@gmail.com");
         profesor.setTipoProfesor(TipoProfesor.TITULAR);
 
-
-
         dulce.setOwnedByCafeteria(cafeteria);
         agua.setOwnedByCafeteria(cafeteria);
         bebidaAzucarada.setOwnedByCafeteria(cafeteria);
         bebidaAlcoholica.setOwnedByCafeteria(cafeteria);
         panaderia.setOwnedByCafeteria(cafeteria);
+        fruta.setOwnedByCafeteria(cafeteria);
         estudiante.setOwnedByCafeteria(cafeteria);
         profesor.setOwnedByCafeteria(cafeteria);
 
@@ -80,6 +89,7 @@ public class Main {
         cafeteria.getListaProductos().add(bebidaAzucarada);
         cafeteria.getListaProductos().add(bebidaAlcoholica);
         cafeteria.getListaProductos().add(panaderia);
+        cafeteria.getListaProductos().add(fruta);
         cafeteria.getListaClientes().add(estudiante);
         cafeteria.getListaClientes().add(profesor);
 
