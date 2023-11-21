@@ -9,4 +9,5 @@ public interface ICafeteria {
     Producto obtenerProducto(String nombre);
     void calcularTotalFactura(Factura factura);
 
+    void calcularTotalProductos(Factura factura);
 }

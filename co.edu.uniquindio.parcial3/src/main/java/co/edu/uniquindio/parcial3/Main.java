@@ -19,6 +19,7 @@ public class Main {
         cafeteria.crearDetalleFactura(factura, producto3, 1);
         cafeteria.crearDetalleFactura(factura, producto4, 4);
         cafeteria.crearDetalleFactura(factura, producto5, 8);
+        cafeteria.calcularTotalProductos(factura);
         cafeteria.calcularTotalFactura(factura);
         System.out.println("Informacion de la factura:"+ factura.toString());
     }

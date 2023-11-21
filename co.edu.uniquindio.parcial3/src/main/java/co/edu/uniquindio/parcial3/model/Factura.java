@@ -6,6 +6,7 @@ import java.util.List;
 public class Factura {
     private int numeroFactura;
     private double totalFactura;
+    private double totalProducto;
     Cafeteria ownedByCafeteria;
     List<DetalleFactura> listaDetallesFacturas = new ArrayList<>();
     public Cliente clienteAsociado;
@@ -58,6 +59,13 @@ public class Factura {
         this.clienteAsociado = clienteAsociado;
     }
 
+    public double getTotalProducto() {
+        return totalProducto;
+    }
+
+    public void setTotalProducto(double totalProducto) {
+        this.totalProducto = totalProducto;
+    }
 
     @Override
     public String toString() {
@@ -79,5 +87,17 @@ public class Factura {
             valorTotalDetalle = 0.0;
         }
         setTotalFactura(acumuladoFactura);
+    }
+
+    public void calcularTotalProductos() {
+        double acumuladoProductos = 0.0;
+        double cantidadProductosDetalle = 0.0;
+        for (DetalleFactura detalleFactura : getListaDetallesFacturas()) {
+            cantidadProductosDetalle = detalleFactura.getCantidad();
+            acumuladoProductos = acumuladoProductos + cantidadProductosDetalle;
+            cantidadProductosDetalle = 0.0;
+
+        }
+        setTotalProducto(acumuladoProductos);
     }
 }

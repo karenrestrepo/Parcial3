@@ -93,4 +93,9 @@ public class Cafeteria implements ICafeteria {
     public void calcularTotalFactura(Factura factura) {
         factura.calcularTotal();
     }
+
+    @Override
+    public void calcularTotalProductos(Factura factura) {
+        factura.calcularTotalProductos();
+    }
 }
